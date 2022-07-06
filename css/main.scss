@@ -1,0 +1,227 @@
+
+@mixin center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin fullwh{
+  width:100%;
+  height:100%;
+}
+
+html{
+  @include fullwh;
+  @include center;
+  flex-direction: column;
+  background-image: url("https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltc28d43095579c8b5/5d87c24e8d8a3163705e3070/summonersrift.jpg");
+  background-size: cover;
+  overflow: hidden;
+  
+  .container{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    .filter_container{
+      position:fixed;
+      top:0;
+      width:100%;
+      height:15%;
+      @include center;
+      flex-direction: column;
+
+        .filter_Tbox{
+          width: 100%;
+          height:60%;
+          @include center;
+          flex-direction: column;
+          position:relative;
+            h1{
+              z-index: 3;
+              color:rgb(190, 160, 99);
+              font-size: 3em;
+              text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+              font-family: 'League Spartan', sans-serif;
+              font-weight: 800;
+            }
+            span{
+              color:white;
+              position: absolute;
+              bottom:-40%;
+              font-size: 3em;
+              transition: transform 0.5s;
+              text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            }
+        }
+        .filter_Bbox{
+          width:50%;
+          height:40%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          $positions: (1:top,2:jungle,3:mid,4:bottom,5:sup);
+          @each $i, $pos in $positions{
+            button:nth-child(#{$i}){
+              background-image: url('../static/images/#{$pos}.svg');
+              background-size: cover;
+              width:40px;
+              height:40px;
+              margin-right: 15px;
+              border: none;
+              background-color: transparent;
+              opacity: 0.7;
+            }
+            button:hover{
+              opacity: 1;
+            }
+          }
+          input{
+            font-size: 20px;
+            width: 250px;
+            height:30px;
+            border: 3px solid rgb(192, 166, 137);
+            color:white;
+            background-color: transparent;
+            padding : 0 20px;
+           
+          }
+          input:focus {outline: none;}
+        }
+    }
+    
+    .wrapper{
+      @include center();
+      @include fullwh();
+      
+      .spinning{
+        z-index: -1;
+        width:60%;
+        border-radius: 50%;
+        background-color:transparent;
+        border: 2px dashed rgb(192, 166, 137);
+        animation: rotation 30s infinite linear;
+      }
+      
+      .spinning:after{
+        content:'';
+        display:block;
+        padding-bottom: 100%;
+      }
+    }
+  }
+  #champions_container::-webkit-scrollbar 
+  {
+    display: none;
+  }
+  #champions_container{
+    box-sizing: border-box;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 70%;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+      .champion_box:hover{
+        transform: perspective(100px) rotateY(-15deg);
+      }    
+
+      .champion_box:focus{
+        filter: grayscale(60%);
+        border: thick double rgb(200,170,100);
+          .champion_focused_circle{
+            display:block;
+            border: 1px solid gold;
+          }
+      }
+
+      .champion_box{
+        @include center;
+        flex-direction: column;
+        width: 120px;
+        height: 150px;
+        margin: 10px;
+        transition: transform 0.5s;
+        position:relative;
+
+        .champion_focused_circle{
+          position: absolute;
+          top:0;
+          width:100%;
+          height:120px;
+          border-radius: 50%;
+          display:none;
+        }
+
+      @for $i from 0 through 138 {
+        .champion_portrait#{$i}{
+          width: 100%;
+          height: 80%;
+          background-image: url('../static/images/#{$i}p.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: thick double #3D3D41;      
+        }
+      }
+        .champion_name{
+          font-size: 20px;
+          font-weight: bold;
+          color:#A09B8C
+        }
+        
+      }
+  }
+}
+
+
+.show{
+  animation: fade-in 1s;
+  display:flex;
+}
+
+.hide{
+  animation: fade-out 1s;
+  display:none !important;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes cntDown{
+  from{
+    transform: scale(1.5);
+  }
+  to{
+    transform: scale(1);
+  }
+}

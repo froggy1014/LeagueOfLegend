@@ -1,0 +1,1398 @@
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltc28d43095579c8b5/5d87c24e8d8a3163705e3070/summonersrift.jpg");
+  background-size: cover;
+  overflow: hidden;
+}
+html .container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+html .container .filter_container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html .container .filter_container .filter_Tbox {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+html .container .filter_container .filter_Tbox h1 {
+  z-index: 3;
+  color: rgb(190, 160, 99);
+  font-size: 3em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 800;
+}
+html .container .filter_container .filter_Tbox span {
+  color: white;
+  position: absolute;
+  bottom: -40%;
+  font-size: 3em;
+  transition: transform 0.5s;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+html .container .filter_container .filter_Bbox {
+  width: 50%;
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html .container .filter_container .filter_Bbox button:nth-child(1) {
+  background-image: url("../static/images/top.svg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.7;
+}
+html .container .filter_container .filter_Bbox button:hover {
+  opacity: 1;
+}
+html .container .filter_container .filter_Bbox button:nth-child(2) {
+  background-image: url("../static/images/jungle.svg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.7;
+}
+html .container .filter_container .filter_Bbox button:hover {
+  opacity: 1;
+}
+html .container .filter_container .filter_Bbox button:nth-child(3) {
+  background-image: url("../static/images/mid.svg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.7;
+}
+html .container .filter_container .filter_Bbox button:hover {
+  opacity: 1;
+}
+html .container .filter_container .filter_Bbox button:nth-child(4) {
+  background-image: url("../static/images/bottom.svg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.7;
+}
+html .container .filter_container .filter_Bbox button:hover {
+  opacity: 1;
+}
+html .container .filter_container .filter_Bbox button:nth-child(5) {
+  background-image: url("../static/images/sup.svg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.7;
+}
+html .container .filter_container .filter_Bbox button:hover {
+  opacity: 1;
+}
+html .container .filter_container .filter_Bbox input {
+  font-size: 20px;
+  width: 250px;
+  height: 30px;
+  border: 3px solid rgb(192, 166, 137);
+  color: white;
+  background-color: transparent;
+  padding: 0 20px;
+}
+html .container .filter_container .filter_Bbox input:focus {
+  outline: none;
+}
+html .container .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+html .container .wrapper .spinning {
+  z-index: -1;
+  width: 60%;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px dashed rgb(192, 166, 137);
+  -webkit-animation: rotation 30s infinite linear;
+          animation: rotation 30s infinite linear;
+}
+html .container .wrapper .spinning:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+html #champions_container::-webkit-scrollbar {
+  display: none;
+}
+html #champions_container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+html #champions_container .champion_box:hover {
+  transform: perspective(100px) rotateY(-15deg);
+}
+html #champions_container .champion_box:focus {
+  filter: grayscale(60%);
+  border: thick double rgb(200, 170, 100);
+}
+html #champions_container .champion_box:focus .champion_focused_circle {
+  display: block;
+  border: 1px solid gold;
+}
+html #champions_container .champion_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 120px;
+  height: 150px;
+  margin: 10px;
+  transition: transform 0.5s;
+  position: relative;
+}
+html #champions_container .champion_box .champion_focused_circle {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  border-radius: 50%;
+  display: none;
+}
+html #champions_container .champion_box .champion_portrait0 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/0p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait1 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/1p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait2 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/2p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait3 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/3p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait4 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/4p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait5 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/5p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait6 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/6p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait7 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/7p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait8 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/8p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait9 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/9p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait10 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/10p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait11 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/11p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait12 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/12p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait13 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/13p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait14 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/14p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait15 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/15p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait16 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/16p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait17 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/17p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait18 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/18p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait19 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/19p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait20 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/20p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait21 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/21p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait22 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/22p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait23 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/23p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait24 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/24p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait25 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/25p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait26 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/26p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait27 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/27p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait28 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/28p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait29 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/29p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait30 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/30p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait31 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/31p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait32 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/32p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait33 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/33p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait34 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/34p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait35 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/35p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait36 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/36p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait37 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/37p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait38 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/38p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait39 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/39p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait40 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/40p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait41 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/41p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait42 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/42p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait43 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/43p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait44 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/44p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait45 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/45p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait46 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/46p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait47 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/47p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait48 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/48p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait49 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/49p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait50 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/50p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait51 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/51p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait52 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/52p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait53 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/53p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait54 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/54p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait55 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/55p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait56 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/56p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait57 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/57p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait58 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/58p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait59 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/59p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait60 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/60p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait61 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/61p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait62 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/62p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait63 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/63p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait64 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/64p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait65 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/65p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait66 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/66p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait67 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/67p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait68 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/68p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait69 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/69p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait70 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/70p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait71 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/71p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait72 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/72p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait73 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/73p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait74 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/74p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait75 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/75p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait76 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/76p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait77 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/77p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait78 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/78p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait79 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/79p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait80 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/80p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait81 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/81p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait82 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/82p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait83 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/83p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait84 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/84p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait85 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/85p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait86 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/86p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait87 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/87p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait88 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/88p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait89 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/89p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait90 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/90p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait91 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/91p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait92 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/92p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait93 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/93p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait94 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/94p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait95 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/95p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait96 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/96p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait97 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/97p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait98 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/98p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait99 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/99p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait100 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/100p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait101 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/101p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait102 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/102p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait103 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/103p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait104 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/104p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait105 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/105p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait106 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/106p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait107 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/107p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait108 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/108p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait109 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/109p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait110 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/110p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait111 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/111p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait112 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/112p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait113 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/113p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait114 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/114p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait115 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/115p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait116 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/116p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait117 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/117p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait118 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/118p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait119 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/119p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait120 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/120p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait121 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/121p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait122 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/122p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait123 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/123p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait124 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/124p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait125 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/125p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait126 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/126p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait127 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/127p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait128 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/128p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait129 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/129p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait130 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/130p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait131 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/131p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait132 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/132p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait133 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/133p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait134 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/134p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait135 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/135p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait136 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/136p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait137 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/137p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_portrait138 {
+  width: 100%;
+  height: 80%;
+  background-image: url("../static/images/138p.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: thick double #3D3D41;
+}
+html #champions_container .champion_box .champion_name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #A09B8C;
+}
+
+.show {
+  -webkit-animation: fade-in 1s;
+          animation: fade-in 1s;
+  display: flex;
+}
+
+.hide {
+  -webkit-animation: fade-out 1s;
+          animation: fade-out 1s;
+  display: none !important;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes cntDown {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes cntDown {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=main.css.map */

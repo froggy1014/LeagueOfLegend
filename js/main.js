@@ -145,7 +145,7 @@ const championNames = {
 let chmp_container = document.getElementById('champions_container');
 let search = document.getElementById('searchBar');
 const cntBx = document.getElementById('cntDown');
-let cnt = 5;
+let cnt = 70;
 let HTMLel = '';
 
 for ( let i = 0; i < 139 ;  i++){
@@ -201,7 +201,7 @@ search.addEventListener('input', (e)=>{
 const cntDown = setInterval(() => {
   if(cnt < 0 ){
     cntBx.innerText = 'Get Ready for the War !'
-    // return window.close();
+    return window.close();
   }
   setTimeout(() => cntBx.style.transform = "scale(2)", 500);
   cntBx.style.transform = "scale(1)";

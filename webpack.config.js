@@ -12,15 +12,20 @@ module.exports = {
   },
   plugins: [
     // 컴파일 + 번들링 CSS 파일이 저장될 경로와 이름 지정
-    // new MiniCssExtractPlugin({ filename: 'css/style.css' }),
+    // new MiniCssExtractPlugin({ filename: 'scss/style.scss' }),
     new HtmlPlugin({template: './index.html'}),
-    // new CopyPlugin({ patterns: [ { from: 'static' }  ]    })
+    new CopyPlugin({ patterns: [ { from: 'static' }  ]    })
   ],
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          // MiniCssExtractPlugin.loader,
+          'css-loader', 
+          'sass-loader'
+        ],
         exclude: /node_modules/
       }
     ]

@@ -146,6 +146,7 @@ const championNames = {
 let chmp_container = document.getElementById('champions_container');
 let search = document.getElementById('searchBar');
 const cntBx = document.getElementById('cntDown');
+const positionBtn = document.getElementsByClassName('positionF')
 let cnt = 30;
 let HTMLel = '';
 
@@ -163,15 +164,21 @@ for ( let i = 0; i < 139 ;  i++){
 chmp_container.innerHTML = HTMLel;
 
 
-export function filterChampion(c) {
-  x = document.querySelectorAll(`.${c}`);
+for (var i = 0; i < positionBtn.length; i++) {
+  positionBtn[i].addEventListener("click", (e) => {
+    filterChampion(e.target.value);
+  })
+}
+
+
+function filterChampion(c) {
+  let x = document.querySelectorAll(`.${c}`);
   removeHide();
   for ( let i = 0; i < x.length; i++) {
     x[i].classList.remove('hide');
     x[i].classList.add('show');
   }
 };
-
 
 
 function removeHide(i){
@@ -189,7 +196,7 @@ function searchedChampion(i){
 };
 
 search.addEventListener('input', (e)=>{
-  c = document.querySelectorAll(".champion_name");
+  let c = document.querySelectorAll(".champion_name");
   removeHide()
   c.forEach((v,i)=>{
     if(v.innerText.indexOf(e.target.value) > -1 )

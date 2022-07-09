@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./scss/main.scss">
   <link rel="stylesheet" href="./scss/main.css">
-  <script defer src="./js/main.js"></script>
+
   <!-- CSS only -->
 </head>
 <body>
@@ -24,11 +24,11 @@
       </div>
       <div class="filter_Bbox">
        <div class="Bbox_btns">
-          <button onclick="filterChampion('top')"></button>
-          <button onclick="filterChampion('jung')"></button>
-          <button onclick="filterChampion('mid')"></button>
-          <button onclick="filterChampion('ad')"></button>
-          <button onclick="filterChampion('sup')"></button>
+          <button class="positionF" value="top"></button>
+          <button class="positionF" value="jung"></button>
+          <button class="positionF" value="mid"></button>
+          <button class="positionF" value="ad"></button>
+          <button class="positionF" value="sup"></button>
        </div>
        <div class="Bbox_search">
           <input id="searchBar" type="text" placeholder="Who's your champion ?">
@@ -38,6 +38,7 @@
     <div id="champions_container">
     </div>
   </div>
+<script src="../js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

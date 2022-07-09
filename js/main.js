@@ -1,5 +1,7 @@
+// SCSS import 
 import '../scss/main.scss';
 
+// List up of Champion's name and positions
 const championNames = {
   'random' : 'all', 
   'aatrox' : 'top', 
@@ -142,27 +144,48 @@ const championNames = {
   'velkoz' : 'sup'
 };
 
-
+// DOM
 let chmp_container = document.getElementById('champions_container');
 let search = document.getElementById('searchBar');
 const cntBx = document.getElementById('cntDown');
 const positionBtn = document.getElementsByClassName('positionF')
+const lockInBtn = document.getElementById('chmpPick')
+let chmpBx = document.querySelectorAll('.champion_box')
+// Initial Set values
 let cnt = 30;
-let HTMLel = '';
 
-for ( let i = 0; i < 139 ;  i++){
-  let names = Object.keys(championNames);
-  let positions = Object.values(championNames);
-  
-  HTMLel += `<div class="champion_box ${positions[i]}" tabindex="0">
-  <div class="champion_focused_circle"></div>
-  <div class="champion_portrait${i}"></div>  
-  <span class="champion_name">${names[i]}</span>
-</div>`;
-  
+pageInit();
+
+function pageInit(){
+  let HTMLel = '';
+
+  for ( let i = 0; i < 139 ;  i++){
+    let names = Object.keys(championNames);
+    let positions = Object.values(championNames);
+    
+    HTMLel += `<div class="champion_box ${positions[i]}" tabindex="0">
+    <div class="champion_focused_circle"></div>
+    <div class="champion_portrait${i}"></div>  
+    <span class="champion_name">${names[i]}</span>
+  </div>`;
+    
+  }
+  chmp_container.innerHTML = HTMLel;
+
+  setInterval(() => {
+    if(cnt < 0 ){
+      cntBx.innerText = 'Get Ready for the War !'
+      return window.close();
+    }
+    setTimeout(() => cntBx.style.transform = "scale(2)", 500);
+    cntBx.style.transform = "scale(1)";
+    cntBx.innerText= cnt; 
+    cnt--;
+  }, 1000);
 }
-chmp_container.innerHTML = HTMLel;
 
+
+// 포지션 버튼 감지 이벤트 리스너
 
 for (var i = 0; i < positionBtn.length; i++) {
   positionBtn[i].addEventListener("click", (e) => {
@@ -170,30 +193,7 @@ for (var i = 0; i < positionBtn.length; i++) {
   })
 }
 
-
-function filterChampion(c) {
-  let x = document.querySelectorAll(`.${c}`);
-  removeHide();
-  for ( let i = 0; i < x.length; i++) {
-    x[i].classList.remove('hide');
-    x[i].classList.add('show');
-  }
-};
-
-
-function removeHide(i){
-  let champBx = document.querySelectorAll('.champion_box');
-  for (let  j = 0 ; j < champBx.length; j++){
-    champBx[j].classList.remove('show');
-    champBx[j].classList.add('hide');
-  }      
-};
-
-function searchedChampion(i){
-  let champBx = document.querySelectorAll('.champion_box');
-  champBx[i].classList.remove('hide');
-  champBx[i].classList.add('show');
-};
+// 검색창 감지 이벤트 리스너
 
 search.addEventListener('input', (e)=>{
   let c = document.querySelectorAll(".champion_name");
@@ -208,14 +208,37 @@ search.addEventListener('input', (e)=>{
 
 
 
-const cntDown = setInterval(() => {
-  if(cnt < 0 ){
-    cntBx.innerText = 'Get Ready for the War !'
-    return window.close();
+// 포지션버튼에 따른 챔피언 필터링함수
+
+function filterChampion(c) {
+  let x = document.querySelectorAll(`.${c}`);
+  removeHide();
+  for ( let i = 0; i < x.length; i++) {
+    x[i].classList.remove('hide');
+    x[i].classList.add('show');
   }
-  setTimeout(() => cntBx.style.transform = "scale(2)", 500);
-  cntBx.style.transform = "scale(1)";
-  cntBx.innerText= cnt; 
-  cnt--;
-}, 1000);
+};
+
+// 모든 요소에서 'hide' 클래스이름 제거 함수
+
+function removeHide(i){
+  let champBx = document.querySelectorAll('.champion_box');
+  for (let  j = 0 ; j < champBx.length; j++){
+    champBx[j].classList.remove('show');
+    champBx[j].classList.add('hide');
+  }      
+};
+
+
+//  넘겨받은 익덱스의 해당 요소 'show' 클래스이름 추가 함수
+
+function searchedChampion(i){
+  let champBx = document.querySelectorAll('.champion_box');
+  champBx[i].classList.remove('hide');
+  champBx[i].classList.add('show');
+};
+
+
+
+
 

@@ -7,7 +7,7 @@
 
 
 ## 📺 Layout 
----
+
 <br>
 
 <img src="./static/images/untitled folder/screen.png">
@@ -17,15 +17,15 @@
 <br>
 
 ## Features 💅
----
-<br>
-
-<img src="./static/images/untitled folder/category.gif" width=350px> 
-<img src="./static/images/untitled folder/search.gif" width=350px >
 
 <br>
 
-### I didn't want to spend too much time for this. So it doesn't have many features that it should be. I will just attach Code that I use for these features. 
+<img src="./static/images/untitled folder/category.gif" > 
+<img src="./static/images/untitled folder/search.gif" >
+
+<br>
+
+### I didn't want to spend too much time for this. So it doesn't have many features which it should be. I will just attach Code that I use for these features. 
 <br>
 <br>
 
